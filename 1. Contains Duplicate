@@ -1,0 +1,29 @@
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+
+        #recall
+        #1. brute force: compare each num with num after (for i, for j) nested loop
+        #2. sorting (O(n log n) time)
+        # nums.sort()
+        # for i in range(len(nums)):
+        #     if nums[i] in nums[i+1: ]:
+        #         return True
+        # return False
+
+        #better soln
+        # seen = set()
+        # for i in range(len(nums)):
+        #     if nums[i] not in seen:
+        #         seen.add(nums[i])
+        #     else:
+        #         return True
+        # return False
+
+        #since we don't care what or where the dup is can just compare lengths of 
+        #set and original list
+
+        seen = set(nums)
+        return not(len(nums) == len(seen))
+
+
+         
