@@ -1,0 +1,35 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+
+        #1. sorting O(n log n) + O(m log m)
+        #if len(s) != len(t):
+        #    return False
+        #return sorted(s) == sorted(t)
+
+        #2. hash map, count # of occurences
+        # if len(s) != len(t):
+        #     return False
+        # s_dict = {}
+        # t_dict = {}
+        # for i in range(len(s)):
+        #     if s[i] not in s_dict:
+        #         s_dict[s[i]] = 0
+        #     s_dict[s[i]] +=1
+        # for j in range(len(t)): 
+        #     if t[j] not in t_dict:
+        #         t_dict[t[j]]= 0
+        #     t_dict[t[j]] +=1
+        # return s_dict == t_dict #O(1) look up time
+        
+        if len(s) != len(t):
+            return False
+        
+        countS, countT = {}, {}
+        #only need to iterate through 1 dict not both!!
+        for i in range(len(s)):
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        return countS == countT
+
+        #alternative method involves using ord function
+
