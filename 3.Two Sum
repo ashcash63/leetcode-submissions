@@ -1,0 +1,27 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        #brute force: compare each num with each other and check if sum matches return index
+        # for i in range(len(nums)):
+        #     for j in range(i+1, len(nums)):
+        #         if nums[i] + nums[j] == target:
+        #             return [i,j]
+        #better approach: check if complement of difference is present, return index
+        # index_dict = {}
+        # for j in range(len(nums)):
+        #     index_dict[nums[j]] = j
+            
+        # for i in range(len(nums)):
+        #     complement = target - nums[i]
+        #     if complement in nums[i+1: ]:
+        #         return [i, index_dict[complement]]
+        #two pass keeps track of index, same time complexity as enumerate soln
+
+        index_dict = {}
+
+        for i,n in enumerate(nums):
+            complement = target - n
+            if complement in index_dict:
+                return [index_dict[complement],i] #switch order bc looking for prev
+            index_dict[n] = i
+
+
