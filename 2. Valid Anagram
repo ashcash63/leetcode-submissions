@@ -24,12 +24,27 @@ class Solution:
         if len(s) != len(t):
             return False
         
-        countS, countT = {}, {}
-        #only need to iterate through 1 dict not both!!
-        for i in range(len(s)):
-            countS[s[i]] = 1 + countS.get(s[i], 0)
-            countT[t[i]] = 1 + countT.get(t[i], 0)
-        return countS == countT
+        # countS, countT = {}, {}
+        # #only need to iterate through 1 dict not both!!
+        # for i in range(len(s)):
+        #     countS[s[i]] = 1 + countS.get(s[i], 0)
+        #     countT[t[i]] = 1 + countT.get(t[i], 0)
+        # return countS == countT
 
         #alternative method involves using ord function
+        #intialize list 26 values all starting at 0
+        count = [0]* 26
+        #if freq of letters in s - freq of letters in t = 0 then we know its anagram
+        #otherwise not
+        #ord give u unicode char 
+        for i in range(len(s)):
+            count[ord(s[i]) - ord('a')] +=1
+            count[ord(t[i]) - ord('a')] -=1
+        for val in count:
+            if val != 0:
+                return False
+        return True
+        #get index 
+        
+
 
