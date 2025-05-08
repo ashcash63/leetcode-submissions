@@ -1,0 +1,20 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        #1.create dict match sorted version with all anagrams
+        # anagrams = {}
+        # for i in strs:
+        #     sortedstr = "".join(sorted(i))
+        #     if sortedstr not in anagrams:
+        #         anagrams[sortedstr] = []
+        #     anagrams[sortedstr].append(i)
+        # return anagrams.values()
+        #solved successfully but could make readable by giving var = "".join(sorted(i))
+        #sorting takes nlogn time so not the most efficeint soln!
+        #2. use ord 
+        count = [0] * 26
+        
+
+
+
+
+        
