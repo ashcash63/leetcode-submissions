@@ -1,0 +1,15 @@
+https://leetcode.com/problems/find-closest-number-to-zero/description/
+
+class Solution:
+    def findClosestNumber(self, nums: List[int]) -> int:
+        min_distance = nums[0]
+        for i in range(1,len(nums)):
+            if abs(nums[i]) < abs(min_distance):
+                min_distance = nums[i]
+            elif nums[i] == abs(min_distance):
+                min_distance = abs(min_distance)
+        return min_distance
+
+        #time: O(n), space O(1)
+
+        
