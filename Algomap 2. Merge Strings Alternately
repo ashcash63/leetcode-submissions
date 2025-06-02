@@ -12,3 +12,23 @@ class Solution:
             res += word2[count-1: ]
         return res
             
+Time complexity: #O(m+n)^2 (creates a new string copy each time)
+Space Complexity: O(m+n)
+
+More optimal would be to convert to list and do the same thing
+
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        res = []
+        count =1
+        for char1, char2 in zip(word1, word2):
+            res.append(char1)
+            res.append(char2)
+            count +=1
+        if len(word1) > len(word2):
+            res.append(word1[count-1: ])
+        if len(word2) > len(word1):   
+            res.append(word2[count-1: ])
+        return ''.join(res)
+        
+            
