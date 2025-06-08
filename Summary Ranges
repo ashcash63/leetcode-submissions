@@ -1,0 +1,18 @@
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        res = []
+        i=0
+        while i < (len(nums)):
+            a = nums[i]
+            b = nums[i]
+            while i+1< len(nums) and nums[i+1] == nums[i]+1:
+                b = nums[i+1]
+                i+=1
+            if a == b:
+                res.append(f"{a}")
+            else:
+                res.append(f"{a}->{b}")
+            i+=1
+        return res
+#time: O(n)
+#space: O(n)
