@@ -1,0 +1,15 @@
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        # #brute force: check for membership in jewels string everytime O(m*n)
+        count = 0
+        # for char in stones:
+        #     if char in jewels:
+        #         count+=1
+        # return count
+        #instead use set
+        seen = set(jewels)
+        for char in stones:
+            if char in seen:
+                count +=1
+        return count -> #O(1) and O(n)
+
