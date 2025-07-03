@@ -1,0 +1,22 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        # outer loop to iterate thru each word
+        # inner loop to iterate thru each letter (max is length of the shortest word)
+        #first find min length word
+        # min_length = float('inf')
+        res = ""
+        # for w in strs:
+        #     if len(w) < min_length:
+        #         min_length = len(w)
+        #to avoid having to uneccessary find min length first just set condition to return 
+        for i in range(len(strs[0])):
+            for s in strs:
+                if len(s) == i or s[i]!= strs[0][i]: #take reference as first word bc at end of day all need to have same prefix
+                    return res
+            res += s[i]
+           
+        return res
+                
+
+#O(n*m (where m is length of min string))
+#O(m (length of shortest string)
