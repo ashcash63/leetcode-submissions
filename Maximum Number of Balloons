@@ -1,0 +1,20 @@
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        word = {"b":0, "a": 0, "l":0, "o": 0, "n": 0}
+        for w in text:
+            if w in word:
+                word[w]+=1
+
+        #return the what is the min out of all!!
+        #normalize l and o since need two
+        # if any are 0 than return 
+        for v in word.values():
+            if v==0:
+                return 0
+        return min(word["b"], word["a"], word["n"], word["l"] //2, word["o"]//2)
+
+        #O(n) & O(1) space because even with dict it is constant space of balloon!
+        
+        
+        
+        
